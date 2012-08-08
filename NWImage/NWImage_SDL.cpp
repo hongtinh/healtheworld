@@ -5,19 +5,19 @@ namespace NorthWind
 
 bool NWImage_SDL::initWithFile( const char* file )
 {
-	if(m_image)
+	if(m_pImage)
 	{
 	    return false;
 	}
 	/* load image from file */
 	SDL_RWops* imageFile;
 	imageFile = SDL_RWFromFile(file, "rb");
-	m_image = IMG_Load_RW(imageFile, 1);
+	m_pImage = IMG_Load_RW(imageFile, 1);
 
 	/* init image data */
-	m_width = m_image->w;
-	m_height = m_image->h;
-	m_data = m_image->pixels;
+	m_width = m_pImage->w;
+	m_height = m_pImage->h;
+	m_pData = m_pImage->pixels;
 
 	return true;
 }

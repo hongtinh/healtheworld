@@ -11,13 +11,13 @@ namespace NorthWind
 class NWImage_SDL:public NWImage
 {
 public:
-	NWImage_SDL(){ m_image = NULL; }
-	~NWImage_SDL(){ if(m_image) delete m_image; }
+	NWImage_SDL(){ m_pImage = NULL; }
+	~NWImage_SDL(){ if(m_pImage) delete m_pImage; }
 	bool initWithFile(const char* file);
 	bool initWithData(const void* data);
 
 private:
-	SDL_Surface *m_image;
+	SDL_Surface *m_pImage;
 };
 
 }

@@ -14,12 +14,12 @@ public:
 	NWImage(){}
 	virtual ~NWImage(){}
 	virtual bool initWithFile(const char* file)  = 0;
-	void* getPixel() const { return m_data; }
+	void* getPixel() const { return m_pData; }
 	unsigned int width() const { return m_width; }
 	unsigned int height() const { return m_height; }
 	
 public:
-	void* m_data;
+	void* m_pData;
 	unsigned int m_width;
 	unsigned int m_height;
 };
