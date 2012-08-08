@@ -1,5 +1,6 @@
 #ifndef NWIMAGE_SDL_H
 #define NWIMAGE_SDL_H
+
 #include "NWImage.h"
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
@@ -15,7 +16,7 @@ public:
 	bool initWithFile(const char* file);
 	bool initWithData(const void* data);
 
-public:
+private:
 	SDL_Surface *m_image;
 };
 
