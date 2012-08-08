@@ -33,6 +33,7 @@ public:
 	unsigned int getPixelsWide() const { return m_pixelsWide; }
 	unsigned int getPixelsHigh() const { return m_pixelsHigh; }
 	void drawAtPoint(float x, float y);
+	void drawInRect(float x, float y, float w, float h);
 
 private:
 	GLuint m_name;

@@ -96,4 +96,30 @@ void NWTexture2D::drawAtPoint( float x, float y )
 		glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 }
 
+void NWTexture2D::drawInRect( float x, float y, float w, float h )
+{
+
+/**
+ * needed GL state:
+ * glEnableClientState(GL_VERTEX_ARRAY);
+ * glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+ */
+	GLfloat	coordinates[] = {	
+		0.0f, 1.0f,
+		1.0f, 1.0f,
+		0.0f, 0.0f,
+		1.0f, 0.0f };
+
+	GLfloat	vertices[] = {	
+		x,			y,	
+		x + w,	y,
+		x,			y + h,
+		x + w,	y + h};
+
+		glBindTexture(GL_TEXTURE_2D, m_name);
+		glVertexPointer(2, GL_FLOAT, 0, vertices);
+		glTexCoordPointer(2, GL_FLOAT, 0, coordinates);
+		glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+}
+
 }
