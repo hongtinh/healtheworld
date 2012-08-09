@@ -6,14 +6,14 @@
 namespace NorthWind
 {
 	/*texture vertex data definition*/
-	typedef struct NWVertex2F
+	typedef struct NWVertex2F_t
 	{
 		GLfloat x;
 		GLfloat y;
 	} ;
 
 	/*texture coordination data definition */
-	typedef struct NWTexCoord2F {
+	typedef struct NWTexCoord2F_t {
 		GLfloat u;
 		GLfloat v;
 	} ;
@@ -22,10 +22,10 @@ namespace NorthWind
 	 * vertices: where to render
 	 * texCoords: what to render
 	 */
-	typedef struct NWUnit_V2F_T2F
+	typedef struct NWUnit_V2F_T2F_t
 	{
-		NWVertex2F		vertices;
-		NWTexCoord2F	texCoords;
+		NWVertex2F_t		vertices;
+		NWTexCoord2F_t 	texCoords;
 	} ;
 
 }

@@ -21,7 +21,7 @@ bool NWTexture2DBatch::initWithTexture( NWTexture2D* texture, unsigned int capac
 {
 	if( !( texture && capacity ) ) return false;
 	m_pTexture = texture;
-	m_pQuads = new NWUnit_V2F_T2F[capacity];
+	m_pQuads = new NWUnit_V2F_T2F_t[capacity];
 	/*6 vertex make a quad*/
 	m_pIndices = new GLushort[capacity*6];
 	initIndices();
@@ -44,12 +44,12 @@ void NWTexture2DBatch::reset()
 {
 	if(m_pQuads)
 	{
-		memset(m_pQuads, 0, sizeof(NWUnit_V2F_T2F) * m_capacity);
+		memset(m_pQuads, 0, sizeof(NWUnit_V2F_T2F_t) * m_capacity);
 		m_totalQuads = 0;
 	}
 }
 
-bool NWTexture2DBatch::addQuad(NWUnit_V2F_T2F* quad)
+bool NWTexture2DBatch::addQuad(NWUnit_V2F_T2F_t * quad)
 {
 	if(m_totalQuads >= m_capacity) return false;
 	m_pQuads[m_totalQuads] = (*quad);

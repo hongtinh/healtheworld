@@ -17,7 +17,7 @@ public:
 	void reset();
 public:
 	NWTexture2D * m_pTexture;
-	NWUnit_V2F_T2F * m_pQuads;
+	NWUnit_V2F_T2F_t * m_pQuads;
 	GLushort *m_pIndices;
 	unsigned int m_capacity;
 	unsigned int m_totalQuads;
