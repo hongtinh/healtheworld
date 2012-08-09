@@ -1,7 +1,7 @@
 #ifndef NWTEXTURE2D_H
 #define NWTEXTURE2D_H
 
-#include "NWImage_SDL.h"
+#include "../NWImage/NWImage_SDL.h"
 #include "SDL/SDL_opengl.h"
 #include <GL/GL.h>
 namespace NorthWind
