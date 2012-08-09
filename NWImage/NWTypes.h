@@ -13,7 +13,7 @@ namespace NorthWind
 	} ;
 
 	/*texture coordination data definition */
-	typedef struct NWTex2F {
+	typedef struct NWTexCoord2F {
 		GLfloat u;
 		GLfloat v;
 	} ;
@@ -25,7 +25,7 @@ namespace NorthWind
 	typedef struct NWUnit_V2F_T2F
 	{
 		NWVertex2F		vertices;
-		NWTex2F			texCoords;
+		NWTexCoord2F	texCoords;
 	} ;
 
 }

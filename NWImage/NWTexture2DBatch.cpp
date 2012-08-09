@@ -10,6 +10,7 @@ NWTexture2DBatch::NWTexture2DBatch()
 	m_pTexture = NULL;
 	m_pIndices = NULL;
 	m_capacity = 0;
+	m_totalQuads = 0;
 }
 
 NWTexture2DBatch::~NWTexture2DBatch()
@@ -39,5 +40,21 @@ void NWTexture2DBatch::initIndices()
 	}
 }
 
+void NWTexture2DBatch::reset()
+{
+	if(m_pQuads)
+	{
+		memset(m_pQuads, 0, sizeof(NWUnit_V2F_T2F) * m_capacity);
+		m_totalQuads = 0;
+	}
+}
+
+bool NWTexture2DBatch::addQuad(NWUnit_V2F_T2F* quad)
+{
+	if(m_totalQuads >= m_capacity) return false;
+	m_pQuads[m_totalQuads] = (*quad);
+	m_totalQuads++;
+	return true;
+}
 
 }
