@@ -9,31 +9,47 @@ namespace NorthWind
 	typedef struct{
 		GLfloat x;
 		GLfloat y;
-	}NWVertex2F_t;
+	}NWPointVertex2F_t;
 
 	/* texture point coordination data definition */
 	typedef struct {
 		GLfloat u;
 		GLfloat v;
-	}NWTexCoord2F_t ;
+	}NWPointTexCoord2F_t ;
+/*
+	typedef struct
+	{
+		NWPointTexCoord2F_t bl;
+		NWPointTexCoord2F_t br;
+		NWPointTexCoord2F_t tl;
+		NWPointTexCoord2F_t tr;
+	}NWTexCoordQuad_T2F_t;
 
+	typedef struct
+	{
+		NWPointVertex2F_t bl;
+		NWPointVertex2F_t br;
+		NWPointVertex2F_t tl;
+		NWPointVertex2F_t tr;
+	}NWVertexQuad_V2F_t;
+*/
 	/* texture point definition */
 	typedef struct {
-		NWVertex2F_t		vertices;
-		NWTexCoord2F_t 	texCoords;
-	}NWPoint_V2F_T2F_t ;
+		NWPointVertex2F_t		vertices;
+		NWPointTexCoord2F_t 	texCoords;
+	}NWUnitPoint_V2F_T2F_t ;
 
 	/* Texture rendering unit data definition	 */
 	typedef struct {
 		/* bottom left */
-		NWPoint_V2F_T2F_t bl;
+		NWUnitPoint_V2F_T2F_t bl;
 		/* bottom right */
-		NWPoint_V2F_T2F_t br;
+		NWUnitPoint_V2F_T2F_t br;
 		/* top left */
-		NWPoint_V2F_T2F_t tl;
+		NWUnitPoint_V2F_T2F_t tl;
 		/* top right */
-		NWPoint_V2F_T2F_t tr;
-	}NWQuad_V2F_T2F_t;
+		NWUnitPoint_V2F_T2F_t tr;
+	}NWUnitQuad_V2F_T2F_t;
 
 
 }

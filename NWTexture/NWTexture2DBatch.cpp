@@ -20,11 +20,13 @@ NWTexture2DBatch::~NWTexture2DBatch()
 bool NWTexture2DBatch::initWithTexture( NWTexture2D* texture, unsigned int capacity )
 {
 	if( !( texture && capacity ) ) return false;
+	m_capacity = capacity;
 	m_pTexture = texture;
-	m_pQuads = new NWQuad_V2F_T2F_t[capacity];
+	m_pQuads = new NWUnitQuad_V2F_T2F_t[capacity];
 	/*6 vertex make a quad*/
 	m_pIndices = new GLushort[capacity*6];
 	initIndices();
+	return true;
 }
 
 void NWTexture2DBatch::initIndices()
@@ -44,17 +46,32 @@ void NWTexture2DBatch::reset()
 {
 	if(m_pQuads)
 	{
-		memset(m_pQuads, 0, sizeof(NWQuad_V2F_T2F_t) * m_capacity);
+		memset(m_pQuads, 0, sizeof(NWUnitQuad_V2F_T2F_t) * m_capacity);
 		m_totalQuads = 0;
 	}
 }
 
-bool NWTexture2DBatch::addQuad(NWQuad_V2F_T2F_t * quad)
+bool NWTexture2DBatch::addQuad(NWUnitQuad_V2F_T2F_t * quad)
 {
 	if(m_totalQuads >= m_capacity) return false;
 	m_pQuads[m_totalQuads] = (*quad);
 	m_totalQuads++;
 	return true;
+}
+
+void NWTexture2DBatch::draw()
+{
+	unsigned int offset = (unsigned int)m_pQuads;
+
+	// vertex
+	unsigned int diff = offsetof( NWUnitPoint_V2F_T2F_t, vertices);
+	glVertexPointer(2, GL_FLOAT, sizeof(NWUnitPoint_V2F_T2F_t), (GLvoid*) (offset + diff) );
+
+	// texture coordinations
+	diff = offsetof( NWUnitPoint_V2F_T2F_t, texCoords);
+	glTexCoordPointer(2, GL_FLOAT, sizeof(NWUnitPoint_V2F_T2F_t), (GLvoid*)(offset + diff));
+
+	glDrawElements(GL_TRIANGLE_STRIP, m_totalQuads*6, GL_UNSIGNED_SHORT, m_pIndices);	
 }
 
 }
