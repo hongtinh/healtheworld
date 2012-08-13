@@ -1,15 +1,15 @@
-#include "NWPiece.h"
+#include "NWTile.h"
 
 namespace NorthWind
 {
 
-	NWPiece::~NWPiece()
+	NWTile::~NWTile()
 	{
 		m_id = 0;
 		m_pTexture = NULL;
 	}
 
-	NWPiece::NWPiece( NWTexture2D* texture, GLfloat x, GLfloat y, GLfloat w, GLfloat h, unsigned id )
+	NWTile::NWTile( NWTexture2D* texture, GLfloat x, GLfloat y, GLfloat w, GLfloat h, unsigned id )
 	{
 		if(NULL == texture) return;
 		m_pTexture = texture;
