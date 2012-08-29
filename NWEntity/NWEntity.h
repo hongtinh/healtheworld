@@ -13,7 +13,9 @@ public:
 	  m_pTile(tile),m_x(x),m_y(y),m_height(height),m_width(width) { }
 
 	~NWEntity();
-	void moveTo(int x, int y) { m_x = x; m_y = y; }
+	void moveTo(int x, int y) { m_x = x; m_y = y; };
+	NWUnitQuad_V2F_T2F_t & getQuad() { return m_quad; }
+	void updateQuad(int viewPortX, int viewPortY);
 
 public:
 	NWTile m_pTile;
@@ -21,6 +23,8 @@ public:
 	GLfloat m_y;
 	GLfloat m_height;
 	GLfloat m_width;
+private:
+	NWUnitQuad_V2F_T2F_t m_quad;
 };
 
 }
