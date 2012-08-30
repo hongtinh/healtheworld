@@ -11,10 +11,11 @@ namespace NorthWind
 		m_y = y;
 		m_height = height;
 		m_width = width;
-		m_quad.bl.texCoords= m_pTile->m_texBL;
+		m_quad.bl.texCoords = m_pTile->m_texBL;
 		m_quad.br.texCoords = m_pTile->m_texBR;
 		m_quad.tl.texCoords = m_pTile->m_texTL;
 		m_quad.br.texCoords = m_pTile->m_texTR;
+		updateQuad(0, 0);
 	}
 
 	void NWEntity::updateQuad(int viewPortX, int viewPortY)
