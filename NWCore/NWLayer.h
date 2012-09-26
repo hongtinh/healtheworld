@@ -1,5 +1,5 @@
 #include "NWEnity.h"
-
+#include "NWTexture2DBatch.h"
 namespace NorthWind
 {
 
@@ -13,6 +13,8 @@ public:
 	void addEntity();
 
 private:
+	NWTexture2DBatch* m_texBatch;
+
 
 
 };

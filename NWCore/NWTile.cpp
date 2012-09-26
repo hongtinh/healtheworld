@@ -5,15 +5,13 @@ namespace NorthWind
 
 	NWTile::~NWTile()
 	{
-		m_id = 0;
 		m_pTexture = NULL;
 	}
 
-	NWTile::NWTile( NWTexture2D* texture, GLfloat x, GLfloat y, GLfloat w, GLfloat h, unsigned id )
+	NWTile::NWTile( NWTexture2D* texture, GLfloat x, GLfloat y, GLfloat w, GLfloat h)
 	{
 		if(NULL == texture) return;
 		m_pTexture = texture;
-		m_id = id;
 		unsigned int texWidth = texture->getPixelsWide();
 		unsigned int texHeight = texture->getPixelsHigh();
 

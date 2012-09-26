@@ -1,7 +1,7 @@
 #ifndef NWENTITY_H
 #define NWENTITY_H
 
-#include "./NWCore/NWTile/NWTile.h"
+#include "NWTile.h"
 
 namespace NorthWind
 {
