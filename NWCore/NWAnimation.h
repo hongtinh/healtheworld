@@ -8,7 +8,6 @@ using namespace std;
 namespace NorthWind
 {
 
-
 typedef class NWTile NWFrame;
 
 class NWAnimation
@@ -16,19 +15,18 @@ class NWAnimation
 public:
 	NWAnimation();
 	~NWAnimation();
-	bool addFrame(NWFrame* frame, int frameId);
+	bool addFrame(NWFrame* frame);
 	bool rmFrame(int frameId);
+	bool insertFrame(NWFrame* frame, int pos);
 	void reset();
 	void setFrameInterval();
 	NWFrame* getFrame();
-    void playInfinitely();
-	void playOnce();
-	void stop();
+    void play();
 
 private:
 	vector<NWFrame*> m_frames;
 	unsigned int m_interval;
-
+	NWFrame* m_renderFrame;
 };
 
 }

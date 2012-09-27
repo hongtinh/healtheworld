@@ -16,6 +16,7 @@ namespace NorthWind
 	{
 		m_frames.clear();
 		m_interval = 0;
+		m_capacity = 0;
 	}
 
 	void NWAnimation::setFrameInterval(unsigned int interval)
@@ -23,28 +24,57 @@ namespace NorthWind
 		m_interval = interval;
 	}
 
-	bool NWAnimation::addFrame(NWFrame* frame, int frameId)
+	bool NWAnimation::addFrame(NWFrame* frame)
 	{
-		m_frames.insert(frameId, frame);
+		if(NULL== frame) 
+		{
+			return false;
+		}
+		m_frames.push_back(frame);
+		return true;
 	}
 
 	bool NWAnimation::rmFrame(int frameId)
 	{
-		m_frames.erase(frameId);
+		if(frameId >= m_frames.size())
+		{
+			return false;
+		}
+
+		vector<NWFrame*>::iterator it;
+		m_frames.erase(it + frameId);
+		return true;
 	}
 
-	void NWAnimation::playInfinitely()
+	bool NWAnimation::insertFrame(NWFrame* frame, int pos)
 	{
-		int ticks = 0;
-		/**
-		TODO:
-
-		*/
-		ticks++;
-		m_renderFrame = m_frames.at(ticks%frameSize);
-		if(ticks >= frameSize) ticks = 0;
+		if(pos >= m_frames.size())
+		{
+			return false;
+		}
+		vector<NWFrame*>::iterator it;
+		m_frames.insert(it + pos);
+		return true;
 	}
 
+	void NWAnimation::play()
+	{
+		static unsigned int ticks = 0;
+		static unsigned int playCount = 0;
+		ticks++;
+		if(ticks == m_interval)
+		{
+			ticks = 0;
+
+			m_renderFrame = m_frames.at(playCount);
+			playCount++;
+
+			if(playCount == m_frames.size())
+			{
+				playCount = 0;
+			}
+		}
+	}
 
 
 }
