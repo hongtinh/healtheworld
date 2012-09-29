@@ -10,7 +10,7 @@ class NWEntity
 {
 public:
 
-	NWEntity(NWTile* tile, int x, int y, int width, int height)();
+	NWEntity(NWTile* tile, int x, int y, int width, int height);
 	~NWEntity();
 
 	void moveTo(int x, int y) { m_x = x; m_y = y; };
