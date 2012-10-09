@@ -16,7 +16,6 @@ namespace NorthWind
 	{
 		m_frames.clear();
 		m_interval = 0;
-		m_capacity = 0;
 	}
 
 	void NWAnimation::setFrameInterval(unsigned int interval)

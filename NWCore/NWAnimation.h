@@ -20,7 +20,7 @@ public:
 	bool insertFrame(NWFrame* frame, int pos);
 	void reset();
 	void setFrameInterval();
-	NWFrame* getFrame();
+	NWFrame* getRenderFrame() { return m_renderFrame; }
     void play();
 
 private:
