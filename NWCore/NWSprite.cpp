@@ -4,48 +4,33 @@
 namespace NorthWind
 {
 
-		NWSprite::NWSprite()
-		{
+NWSprite::NWSprite()
+{
+}
 
-		}
+NWSprite:~NWSprite()
+{
+}
 
-		NWSprite:~NWSprite()
-		{
 
-		}
+void NWSprite::updateQuad()
+{
+}
 
-		 void NWSprite::play()
-		 {
-			 switch(m_action)
-			 {
-			 case NW_SPRITE_HOLD:
-				 /**
-				 action do nothing;
-				 animation stop;
-				 */
-				 this->stopGoing();
-			 case NW_SPRITE_GO:
-				 this->going();
-			 default:
+void NWSprite::addAction(NWAction action)
+{
+	action.attach(this);
+	m_actions.insert(pair<string, NWAction>(action.getName(), action));
+}
 
-			 }
-
-		 }
-
-		 void NWSprite::goTo(int x, int y)
-		 {
-			 m_action = NW_SPRITE_GO;
-			 m_targetX = x;
-			 m_targetY = y;
-		 }
-		 void NWSprite::going()
-		 {
-
-		 }
-		  
-		 void NWSprite::stopGoing()
-		 {
-
-		 }
+void NWSprite::play()
+{
+	map<string, NWAction>::iterator it;
+	it = m_actions.find(m_beingAction);
+	if( it!= m_actions.end())
+	{
+		it->second.play();
+	}
+}
 
 }

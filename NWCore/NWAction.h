@@ -1,6 +1,9 @@
 #ifndef NWACTION_H
 #define NWACTION_H
 #include "NWAnimation.h"
+#include "NWSprite.h"
+#include <string>
+using namespace std;
 
 namespace NorthWind
 {
@@ -8,18 +11,18 @@ namespace NorthWind
 class NWAction
 {
 public:
-	NWAction();
-	~NWAction();
-	void stop();
-	void moveTo(int x, int y);
-	void goTo(int x, int y);
-	void setSpeed(int speed);
-	void play();
+	NWAction(string actionName) { m_name = actionName; }
+	virtual ~NWAction() {}
+	virtual void play() const = 0;
+	void attach(NWSprite* sprite) { m_sprite = sprite; }
+	void detach() { m_sprite = NULL; }
+	void setAnimation(NWAnimation animation) { m_animation = animation; }
+	string getName() { return m_name; }
 
-public:
+private:
 	NWAnimation m_animation;
-	int m_speed;
-
+	NWSprite* m_sprite;
+	string m_name;
 };
 
 }
