@@ -1,1 +1,0 @@
-map: only support rectangle tiled map.
