@@ -86,13 +86,13 @@ void NWTexture2D::drawAtPoint( float x, float y )
 		1.0f, 0.0f };
 
 	GLfloat	vertices[] = {	
-		x,	y,	0.0f,
-		m_pixelsWide + x,	 y,	 0.0f,
-		x,	m_pixelsHigh + y, 0.0f,
-		m_pixelsWide + x,	 m_pixelsHigh + y,0.0f };
+		x,	y,
+		m_pixelsWide + x,	 y,	
+		x,	m_pixelsHigh + y,
+		m_pixelsWide + x,	 m_pixelsHigh + y};
 
 		glBindTexture(GL_TEXTURE_2D, m_name);
-		glVertexPointer(3, GL_FLOAT, 0, vertices);
+		glVertexPointer(2, GL_FLOAT, 0, vertices);
 		glTexCoordPointer(2, GL_FLOAT, 0, coordinates);
 		glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 }

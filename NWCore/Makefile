@@ -1,23 +1,22 @@
-CC=g++
+CC=gcc
+CXX=g++
 #CFLAGS= -g `sdl-config --cflags --libs` -lSDL -lSDL_image -lglut -lGL -lGLU 
-CFLAGS= -g -Wall 
-LIBS= -lSDL -lSDL_image -lGL
+CCFLAGS= -g -Wall 
+LIBS= -lSDL -lSDL_image -lglut -lGL -lGLU
 INC=-I.
 
-DEPS = NWImage.h \
-	NWImage_SDL.h \
-	NWTexture2D.h \
-	NWTypes.h
+DEPS = NWTypes.h
 
 OBJS = main.o \
 	NWImage_SDL.o \
 	NWTexture2D.o
 
 %.o: %.c $(DEPS)
-	$(CC) -c -o $@ $< $(INC)
+	$(CXX) $(CCFLAGS) $(INC) -c $@ -o $<
 
 HTW: $(OBJS)
-	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
+	$(CXX) $(CCFLAGS) $(OBJS) -o $@ $(LIBS)
 
+.PHONY:clean
 clean:
 	rm *.o HTW
