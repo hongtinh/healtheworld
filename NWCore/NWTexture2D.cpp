@@ -1,5 +1,5 @@
 #include "NWTexture2D.h"
-#include "../NWTypes.h"
+#include "NWTypes.h"
 
 namespace NorthWind
 {

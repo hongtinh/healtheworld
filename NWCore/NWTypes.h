@@ -1,7 +1,8 @@
 #ifndef NWTYPES_H
 #define NWTYPES_H
 
-#include <GL/GL.h>
+#include <GL/gl.h>
+#include <GL/glut.h>
 
 namespace NorthWind
 {
