@@ -39,7 +39,7 @@ Uint32 runLoopTimer(Uint32 interval, void* param)
 
 }
 void setTimer(Uint32 interval) 
-{ 
+{
     SDL_TimerID mTimer = SDL_AddTimer(interval, runLoopTimer, NULL); 
 }
 
