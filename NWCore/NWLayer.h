@@ -10,6 +10,7 @@ public:
 	NWLayer();
 	~NWLayer();
 	void pushEntityToView();
+	void updateView();
 	void addEntity();
 
 private:

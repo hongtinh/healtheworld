@@ -61,7 +61,7 @@ bool NWTexture2DBatch::addQuad(NWUnitQuad_V2F_T2F_t * quad)
 
 void NWTexture2DBatch::draw()
 {
-	unsigned int offset = (unsigned int)m_pQuads;
+	int* offset = (int*)m_pQuads;
 
 	// vertex
 	unsigned int diff = offsetof( NWUnitPoint_V2F_T2F_t, vertices);
@@ -71,7 +71,7 @@ void NWTexture2DBatch::draw()
 	diff = offsetof( NWUnitPoint_V2F_T2F_t, texCoords);
 	glTexCoordPointer(2, GL_FLOAT, sizeof(NWUnitPoint_V2F_T2F_t), (GLvoid*)(offset + diff));
 
-	glDrawElements(GL_TRIANGLE_STRIP, m_totalQuads*6, GL_UNSIGNED_SHORT, m_pIndices);	
+	glDrawElements(GL_TRIANGLE_STRIP, (GLsizei)m_totalQuads*6, GL_UNSIGNED_SHORT, (GLvoid*)(m_pIndices));	
 }
 
 }

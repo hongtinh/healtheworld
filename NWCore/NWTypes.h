@@ -21,6 +21,7 @@ namespace NorthWind
 	/* texture point definition */
 	typedef struct {
 		NWPointVertex2F_t		vertices;
+		//GLfloat color[4];
 		NWPointTexCoord2F_t 	texCoords;
 	}NWUnitPoint_V2F_T2F_t ;
 

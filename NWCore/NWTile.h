@@ -1,7 +1,7 @@
 #ifndef NWTILE_H
 #define NWTILE_H
 
-#include "./NWTexture/NWTexture2D.h"
+#include "NWTexture2D.h"
 #include "NWTypes.h"
 
 namespace NorthWind
@@ -21,6 +21,7 @@ public:
 	NWPointTexCoord2F_t m_texBR;
 	NWPointTexCoord2F_t m_texTL;
 	NWPointTexCoord2F_t m_texTR;
+	//GLfloat m_color[4];
 };
 
 }

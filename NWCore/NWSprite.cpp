@@ -8,7 +8,7 @@ NWSprite::NWSprite()
 {
 }
 
-NWSprite:~NWSprite()
+NWSprite::~NWSprite()
 {
 }
 

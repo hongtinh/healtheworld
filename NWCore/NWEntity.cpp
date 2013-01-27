@@ -15,7 +15,19 @@ namespace NorthWind
 		m_quad.br.texCoords = m_pTile->m_texBR;
 		m_quad.tl.texCoords = m_pTile->m_texTL;
 		m_quad.br.texCoords = m_pTile->m_texTR;
+		/*
+		for(int i=0; i<4;i++)
+			{
+		m_quad.bl.color[i] = 1;
+		m_quad.br.color[i] = 1;
+		m_quad.tl.color[i] = 1;
+		m_quad.tr.color[i] = 1;
+			}
+		*/
 		updateQuad(0, 0);
+	}
+	NWEntity::~NWEntity()
+	{
 	}
 
 	void NWEntity::updateQuad(int viewPortX, int viewPortY)

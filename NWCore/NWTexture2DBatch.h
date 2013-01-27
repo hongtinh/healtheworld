@@ -2,7 +2,7 @@
 #define NWTEXTURE2DBATCH_H
 
 #include "NWTexture2D.h"
-#include "../NWTypes.h"
+#include "NWTypes.h"
 namespace NorthWind
 {
 

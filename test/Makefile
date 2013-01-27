@@ -3,16 +3,19 @@ CXX=g++
 #CFLAGS= -g `sdl-config --cflags --libs` -lSDL -lSDL_image -lglut -lGL -lGLU 
 CCFLAGS= -g -Wall 
 LIBS= -lSDL -lSDL_image -lglut -lGL -lGLU
-INC=-I.\
-	-I../NWCore
+INC=-I../NWCore
 
-DEPS = ../NWCore/NWTypes.h
+#DEPS = NWTypes.h
 
 OBJS = main.o \
 	../NWCore/NWImage_SDL.o \
-	../NWCore/NWTexture2D.o
+	../NWCore/NWTexture2D.o \
+	../NWCore/NWTexture2DBatch.o \
+	../NWCore/NWTile.o \
+	../NWCore/NWEntity.o 
 
-%.o: %.cpp $(DEPS)
+
+%.o: %.cpp
 	$(CXX) $(CCFLAGS) $(INC) -c $< -o $@
 
 HTW: $(OBJS)

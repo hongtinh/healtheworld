@@ -26,6 +26,12 @@ namespace NorthWind
 
 		m_texTR.u = m_texBR.u;
 		m_texTR.v = m_texTL.v;
+		/*
+		m_color[0]=1;
+		m_color[1]=1;
+		m_color[2]=1;
+		m_color[3]=1;
+		*/
 	}
 
 }

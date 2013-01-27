@@ -21,7 +21,7 @@ public:
 
 private:
 	NWUnitQuad_V2F_T2F_t m_quad;
-	NWTile m_pTile;
+	NWTile* m_pTile;
 	GLfloat m_x;
 	GLfloat m_y;
 	GLfloat m_height;
@@ -29,4 +29,4 @@ private:
 };
 
 }
-#endi
+#endif
